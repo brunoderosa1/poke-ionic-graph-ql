@@ -1,0 +1,7 @@
+{
+  "name": "Poke Ionic GraphQL",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
