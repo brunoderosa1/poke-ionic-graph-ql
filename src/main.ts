@@ -1,6 +1,8 @@
-import { createApp } from 'vue'
+import { createApp, h } from 'vue'
 import App from './App.vue'
 import router from './router';
+import ApolloProvider from './ApolloProvider'
+import VueApolloComponents from '@vue/apollo-components'
 
 import { IonicVue } from '@ionic/vue';
 
@@ -23,10 +25,14 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-const app = createApp(App)
-  .use(IonicVue)
-  .use(router);
-  
+const app = createApp({
+  render: () => h(App)
+})
+.use(IonicVue)
+.use(router)
+.use(ApolloProvider)
+.use(VueApolloComponents);
+
 router.isReady().then(() => {
   app.mount('#app');
 });
